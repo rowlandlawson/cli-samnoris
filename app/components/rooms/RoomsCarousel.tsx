@@ -4,6 +4,8 @@ import { useState } from "react";
 import { RoomCard } from "./RoomCard";
 import { rooms } from "../../../data/data";
 import { RoomDetailsDialog } from "./RoomsDetailsDialog";
+import SectionHeading from "../Helper/SectionHeading";
+
 
 export const RoomsCarousel = () => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -11,8 +13,9 @@ export const RoomsCarousel = () => {
 
   return (
     <section className="py-20 px-4 bg-gray-50">
-      <h2 className="text-4xl font-bold text-center mb-10">Rooms & Amenities</h2>
-
+      <SectionHeading heading="Recommended Rooms"
+      subheading="Discover a curated selection of rooms designed for comfort, elegance, and convenience each crafted to give you a stay that feels uniquely yours"
+      />
       {/* ALWAYS HORIZONTAL + SCROLLABLE */}
       <div
         className="

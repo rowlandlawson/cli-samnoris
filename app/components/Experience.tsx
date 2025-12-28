@@ -5,15 +5,17 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { experiences } from "@/data/data";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import SectionHeading from "./Helper/SectionHeading";
+
 
 export const SignatureExperience = () => {
   const [selectedExp, setSelectedExp] = useState<(typeof experiences)[number] | null>(null);
 
   return (
-    <section className="relative w-full bg-gray-50 py-20 px-4">
-      <h2 className="text-4xl md:text-5xl font-bold text-center mb-12 text-gray-900">
-        Our Signature Experiences
-      </h2>
+    <section className="relative w-full bg-green-950 py-20 px-4">
+      <div className="absolute inset-0 bg-linear-to-b from-black/40 via-black/20 to-black/60" />
+
+      <SectionHeading heading="Our Signature Experience" subheading={""}      />
 
       {/* Grid of Experiences */}
       <div className="grid md:grid-cols-3 gap-8">

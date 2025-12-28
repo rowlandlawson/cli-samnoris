@@ -6,7 +6,8 @@ import { Button } from "@/components/ui/button";
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const RoomCard = ({ room, onViewDetails }: any) => {
   return (
-    <div className="relative group rounded-lg overflow-hidden shadow-lg w-full">
+    <section className="w-full max-w-5xl">
+      <div className="relative group rounded-lg overflow-hidden shadow-lg w-full">
       <Image
         src={room.image}
         alt={room.name}
@@ -15,7 +16,7 @@ export const RoomCard = ({ room, onViewDetails }: any) => {
         className="object-cover w-full h-64 group-hover:scale-105 transition-all"
       />
 
-      {/* Overlay */}
+        {/* Overlay */}
       <div className="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-4">
         <h3 className="text-xl font-semibold">{room.name}</h3>
         <p className="text-lg">${room.price}/night</p>
@@ -30,5 +31,7 @@ export const RoomCard = ({ room, onViewDetails }: any) => {
         </Button>
       </div>
     </div>
+    </section>
+    
   );
 };

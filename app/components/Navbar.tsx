@@ -54,9 +54,9 @@ export const Navbar = () => {
     <div className="md:hidden">
       <button onClick={() => setIsOpen(!isOpen)}>
         {isOpen ? (
-          <X className="w-7 h-7 text-orange-500" />
+          <X className="w-7 h-7 text-[#8C6A3B]" />
         ) : (
-          <Menu className="w-7 h-7 text-orange-500" />
+          <Menu className="w-7 h-7 text-[#8C6A3B]" />
         )}
       </button>
     </div>

@@ -6,7 +6,7 @@ import { Testimonials } from "./components/Testimonials";
 
 export default function Home() {
   return (
-    <div className="w-full bg-[#FAF8F4]">
+    <div className="w-full">
       <Hero />
       <RoomsCarousel />
       <SignatureExperience />
