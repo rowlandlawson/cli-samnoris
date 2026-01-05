@@ -2,10 +2,16 @@
 
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
+import { Room } from "./RoomGrid";
 import { Star } from "lucide-react";
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const RoomDetailsDialog = ({ room, open, onClose }: any) => {
+interface RoomDetailsDialogProps {
+  room: Room | null;
+  open: boolean;
+  onClose: (open: boolean) => void;
+}
+
+export const RoomDetailsDialog: React.FC<RoomDetailsDialogProps> = ({ room, open, onClose }) => {
   if (!room) return null;
 
   return (
@@ -24,7 +30,7 @@ export const RoomDetailsDialog = ({ room, open, onClose }: any) => {
 
         <p className="font-semibold mb-2">Amenities:</p>
         <ul className="list-disc ml-6 space-y-1 mb-6">
-          {room.amenities.map((a: string, i: number) => (
+          {room.amenities.map((a, i) => (
             <li key={i}>{a}</li>
           ))}
         </ul>

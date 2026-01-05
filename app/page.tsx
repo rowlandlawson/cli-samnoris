@@ -1,16 +1,14 @@
 import ContactPage from "./components/Contact";
-import { SignatureExperience } from "./components/Experience";
+import { SpaSection } from "./components/Experience";
 import { Hero } from "./components/Hero";
-import { RoomsCarousel } from "./components/rooms/RoomsCarousel";
-import { Testimonials } from "./components/Testimonials";
+import RoomGridClient from "./components/rooms/RoomsCarousel";
 
 export default function Home() {
   return (
     <div className="w-full">
       <Hero />
-      <RoomsCarousel />
-      <SignatureExperience />
-      <Testimonials />
+      <RoomGridClient />
+      <SpaSection />
       <ContactPage/>
     </div>
   );
