@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useState } from "react";
+import { BookingModal } from "./BookingModal";
 
 export const Hero = () => {
   const [open, setOpen] = useState(false);
@@ -25,7 +26,7 @@ export const Hero = () => {
         {/* TEXT */}
         <div className="text-white py-8 md:py-2">
           <h1 className="text-3xl md:text-5xl font-extrabold leading-tight">
-            Experience Luxury & Comfort <br /> Like Never Before
+            <i>Experience Luxury & Comfort <br /> Like Never Before</i>
           </h1>
 
           <p className="mt-5 text-lg md:text-xl opacity-90 max-w-lg">
@@ -50,15 +51,11 @@ export const Hero = () => {
         <div className="relative hidden md:flex justify-center items-center">
           {/* glow */}
           <div className="absolute inset-0 bg-emerald-400/10 blur-3xl rounded-[3rem]" />
-
-          {/* container */}
-          <div className="relative w-[520px] h-[560px]">
-            
-            {/* Main Image */}
-            <div className="absolute top-30 left-0 z-20 rounded-[2.5rem] overflow-hidden
-              bg-white/5 backdrop-blur-xl border border-white/10
-              shadow-[0_30px_80px_rgba(0,0,0,0.6)]">
-              <Image
+          {/* Floating Images Decoration */}
+        <div className="relative hidden md:flex justify-center items-center h-[700px]">
+          {/* Main Top Image */}
+          <div className="absolute top-[120px] right-5 w-80 h-64 rounded-[2.5rem] overflow-hidden shadow-[0_35px_60px_-15px_rgba(0,0,0,0.6)] border-4 border-white/10 transform rotate-8 hover:rotate-0 transition-all duration-700 ease-in-out group">
+            <Image
                 src="/images/hero1.png"
                 alt="Luxury interior"
                 width={320}
@@ -66,53 +63,40 @@ export const Hero = () => {
                 priority
                 className="object-cover"
               />
-            </div>
-
-            {/* Secondary Image */}
-            <div className="absolute bottom-0 right-0 z-10 rounded-[2.5rem] overflow-hidden
-              bg-white/5 backdrop-blur-xl border border-white/10
-              shadow-[0_20px_60px_rgba(0,0,0,0.45)]">
-              <Image
+          </div>
+          
+          {/* Secondary Bottom Image */}
+          <div className="absolute bottom-20 left-0 w-[300px] h-72 rounded-[3rem] overflow-hidden shadow-[0_35px_60px_-15px_rgba(0,0,0,0.8)] border-8 border-white/5 transform -rotate-5 hover:rotate-0 transition-all duration-700 ease-in-out z-20 group">
+             <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent"></div>
+            <Image
                 src="/images/hero.png"
                 alt="Luxury detail"
                 width={320}
                 height={400}
                 className="object-cover"
               />
+            <div className="absolute bottom-6 left-8">
+                <p className="text-white font-display text-2xl font-bold">Villas with Private Pool</p>
             </div>
           </div>
+
+          {/* Abstract Glow Elements */}
+          <div className="absolute bottom-10 right-20 w-64 h-64 bg-primary/20 rounded-full blur-[100px] -z-10 animate-pulse"></div>
+          <div className="absolute top-20 left-10 w-48 h-48 bg-blue-500/10 rounded-full blur-[80px] -z-10"></div>
         </div>
+      </div>
       </div>
 
       {/* PAYMENT MODAL */}
       {open && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm">
-          <div className="w-full max-w-md rounded-2xl bg-green-950 border border-white/10 p-6 shadow-[0_40px_100px_rgba(0,0,0,0.8)]">
-            <h3 className="text-xl font-bold text-white">
-              Complete Your Booking
-            </h3>
-
-            <p className="mt-2 text-white/70 text-sm">
-              Secure your reservation with a quick payment.
-            </p>
-
-            <div className="mt-6 space-y-3">
-              <button className="w-full py-3 rounded-xl bg-[#C89F65] hover:bg-[#8C6A3B] transition font-semibold text-white">
-                Pay with Card
-              </button>
-
-              <button className="w-full py-3 rounded-xl bg-white/10 hover:bg-white/20 transition font-semibold text-white">
-                Pay on Arrival
-              </button>
-            </div>
-
-            <button
-              onClick={() => setOpen(false)}
-              className="mt-6 w-full text-sm text-white/60 hover:text-white transition"
-            >
-              Cancel
-            </button>
-          </div>
+        <div>
+          <BookingModal room={{ name: "", price: 0, rating: 0, reviews: 0, image: "" }} onClose={() => setOpen(false)} />
+          <button
+            onClick={() => setOpen(false)}
+            className="mt-6 w-full text-sm text-white/60 hover:text-white transition"
+          >
+            Cancel
+          </button>
         </div>
       )}
     </section>
