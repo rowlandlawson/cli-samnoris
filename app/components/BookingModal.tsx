@@ -41,8 +41,18 @@ export const BookingModal: React.FC<BookingModalProps> = ({ room, onClose }) => 
             />
             <div className="absolute inset-0 bg-linear-to-t from-secondary via-secondary/40 to-transparent"></div>
           </div>
+          <div className="flex items-center mt-15 justify-center">
+                  <Image
+                    src="/images/logo1.png"
+                    alt="Logo"
+                    width={100}
+                    height={100}
+                    className="rounded-full w-20 h-20 object-cover mx-auto"
+                  />
+                </div>
           
-          <div className="absolute bottom-0 left-0 p-10 z-10 w-full">
+          <div className="absolute bottom-0 left-0 px-10 py-15 z-10 w-full">
+            
             <h2 className="font-display text-4xl font-bold text-white mb-3 leading-tight">{room.name}</h2>
             <i className="text-[#0a3a2a] text-lg leading-relaxed mb-8 font-semibold">
               Experience the pinnacle of comfort with panoramic views and premium curated amenities designed for the discerning traveler.
@@ -87,7 +97,6 @@ export const BookingModal: React.FC<BookingModalProps> = ({ room, onClose }) => 
                 <div className="space-y-1.5">
                   <label className="text-xs font-semibold text-gray-700 px-1">Full Name</label>
                   <div className="relative group">
-                    <span className="material-icons absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-lg group-focus-within:text-primary transition-colors">person</span>
                     <input 
                       className="w-full pl-11 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all placeholder-gray-400" 
                       placeholder="John Doe" 
@@ -98,7 +107,6 @@ export const BookingModal: React.FC<BookingModalProps> = ({ room, onClose }) => 
                 <div className="space-y-1.5">
                   <label className="text-xs font-semibold text-gray-700 px-1">Email Address</label>
                   <div className="relative group">
-                    <span className="material-icons absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-lg group-focus-within:text-primary transition-colors">email</span>
                     <input 
                       className="w-full pl-11 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all placeholder-gray-400" 
                       placeholder="john@example.com" 
@@ -124,12 +132,16 @@ export const BookingModal: React.FC<BookingModalProps> = ({ room, onClose }) => 
                 <div className="space-y-1.5">
                   <label className="text-xs font-semibold text-gray-700 px-1">Guests</label>
                   <div className="relative">
-                    <select className="w-full pl-4 pr-10 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary/20 outline-none transition-all appearance-none cursor-pointer">
-                      <option>1 Adult</option>
-                      <option selected>2 Adults</option>
-                      <option>2 Adults, 1 Child</option>
-                      <option>Family (4+)</option>
-                    </select>
+                    <select
+  defaultValue="2 Adults"
+  className="w-full pl-4 pr-10 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary/20 outline-none transition-all appearance-none cursor-pointer"
+>
+  <option value="1 Adult">1 Adult</option>
+  <option value="2 Adults">2 Adults</option>
+  <option value="2 Adults, 1 Child">2 Adults, 1 Child</option>
+  <option value="Family (4+)">Family (4+)</option>
+</select>
+
                     <span className="material-icons absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none">expand_more</span>
                   </div>
                 </div>
@@ -168,7 +180,6 @@ export const BookingModal: React.FC<BookingModalProps> = ({ room, onClose }) => 
                 <div className="space-y-1.5">
                   <label className="text-[10px] font-bold text-gray-400 uppercase tracking-wider px-1">Card Number</label>
                   <div className="relative group">
-                    <span className="material-icons absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-lg group-focus-within:text-primary transition-colors">lock</span>
                     <input 
                       className="w-full pl-11 pr-4 py-3 bg-white border border-gray-200 rounded-xl focus:ring-1 focus:ring-primary outline-none text-sm tracking-widest" 
                       placeholder="0000 0000 0000 0000" 
@@ -200,7 +211,6 @@ export const BookingModal: React.FC<BookingModalProps> = ({ room, onClose }) => 
                 className="w-full sm:w-auto bg-[#C89F65] hover:bg-[#8C6A3B] text-secondary font-bold py-4 px-12 rounded-xl shadow-xl shadow-primary/20 transition-all transform hover:-translate-y-1 active:translate-y-0 flex items-center justify-center gap-3 group"
               >
                 <span className="text-base uppercase tracking-widest">Confirm & Pay</span>
-                <span className="material-icons group-hover:translate-x-1 transition-transform">arrow_forward</span>
               </button>
             </div>
           </form>
