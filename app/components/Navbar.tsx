@@ -15,7 +15,7 @@ export const Navbar = () => {
     {/* LEFT: LOGO */}
     <div className="flex items-center">
       <Image
-        src="/images/logo.png"
+        src="/images/logo1.png"
         alt="Logo"
         width={60}
         height={60}
@@ -63,7 +63,7 @@ export const Navbar = () => {
 
     {/* MOBILE MENU */}
     {isOpen && (
-      <div className="absolute top-full left-0 w-full bg-white rounded-xl shadow-lg p-6 mt-3 md:hidden animate-slideDown z-50">
+      <div className="absolute top-full left-0 w-full bg-white rounded-xl shadow-lg p-6 mt-3 md:hidden animate-slideDown z-10">
         <div className="flex flex-col gap-4 font-medium text-gray-700">
 
           <Link href="/" onClick={() => setIsOpen(false)}>Home</Link>

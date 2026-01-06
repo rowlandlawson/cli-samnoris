@@ -1,4 +1,4 @@
-import ContactPage from "./components/Contact";
+import { Contact } from "./components/Contact";
 import { SpaSection } from "./components/Experience";
 import { Hero } from "./components/Hero";
 import RoomGridClient from "./components/rooms/RoomsCarousel";
@@ -9,7 +9,7 @@ export default function Home() {
       <Hero />
       <RoomGridClient />
       <SpaSection />
-      <ContactPage/>
+      <Contact />
     </div>
   );
 }

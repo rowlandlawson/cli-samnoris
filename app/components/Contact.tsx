@@ -1,202 +1,140 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { ArrowBigRight } from 'lucide-react';
+import React from 'react';
+import { FaExpand } from 'react-icons/fa';
+import { FaFacebookF, FaInstagram } from "react-icons/fa";
+import { HiOutlineMail } from "react-icons/hi";
+import { FiGlobe } from "react-icons/fi";
 
-export default function ContactPage() {
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
-  const [status, setStatus] = useState<"success" | "error" | null>(null);
+const socialLinks = [
+  { icon: <FaFacebookF />, url: "https://www.facebook.com/yourpage" },
+  { icon: <FaInstagram />, url: "https://www.instagram.com/yourpage" },
+  { icon: <FiGlobe />, url: "https://www.yourwebsite.com" },
+  { icon: <HiOutlineMail />, url: "mailto:youremail@example.com" },
+];
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      });
-      if (!res.ok) throw new Error("Failed");
-      setForm({ name: "", email: "", message: "" });
-      setStatus("success");
-      setTimeout(() => setStatus(null), 3000);
-    } catch {
-      setStatus("error");
-      setTimeout(() => setStatus(null), 3000);
-    }
-  };
-
+export const Contact: React.FC = () => {
   return (
-    <section className="relative min-h-screen w-full bg-green-950 px-4 py-20 text-white overflow-hidden">
-      {/* Background overlay */}
-      <div className="absolute inset-0 bg-linear-to-b from-black/40 via-black/20 to-black/60" />
+    <div className="min-h-screen bg-stone-50 pt-32 pb-24 px-6 text-secondary">
+      {/* Background decoration */}
+      <div className="absolute top-0 right-0 w-1/3 h-full bg-primary/5 z-0"></div>
+      <div className="absolute bottom-0 left-0 w-1/4 h-1/2 bg-secondary/2 z-0"></div>
 
-      {/* Toast */}
-      <AnimatePresence>
-        {status && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className={`fixed top-6 z-50 px-6 py-3 rounded-xl 
-              shadow-[0_10px_40px_rgba(0,0,0,0.3)] 
-              backdrop-blur-md text-sm ${
-                status === "success"
-                  ? "bg-green-600/90"
-                  : "bg-red-500/90"
-              }`}
-          >
-            {status === "success"
-              ? "Your message has been sent!"
-              : "Something went wrong."}
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <div className="container mx-auto relative z-10">
+        <div className="max-w-6xl mx-auto">
+          
+          <div className="grid lg:grid-cols-2 gap-20 items-center">
+            
+            {/* Left Column: Minimal Copy */}
+            <div className="space-y-12">
+              <div className="space-y-6">
+                <h3 className="text-primary text-xs font-bold uppercase tracking-[0.5em]">Contact Us</h3>
+                <h1 className="font-display text-5xl md:text-7xl text-gray-200 font-bold leading-tight">
+                  We’d love to <br/>
+                  <span className="italic font-light text-primary">hear from you</span>
+                </h1>
+                <p className="text-gray-500 font-light text-lg leading-relaxed max-w-md">
+                  Whether you have a question about our villas, spa rituals, or need assistance with your booking, our dedicated team is here to ensure your LuxeHaven experience is flawless.
+                </p>
+              </div>
 
-      {/* Page Heading */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="relative z-10 max-w-5xl mx-auto mb-14 text-center md:text-left"
-      >
-        <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight">
-          Get in Touch
-        </h1>
-        <p className="mt-3 text-base md:text-lg text-white/80 max-w-xl">
-          We’d love to hear from you. Reach out for bookings, inquiries, or special
-          requests.
-        </p>
-      </motion.div>
+              <div className="grid sm:grid-cols-2 gap-10">
+                <div className="space-y-4">
+                  <h4 className="font-display text-gray-200 text-xl font-bold">The Estate</h4>
+                  <p className="text-gray-400 text-sm font-light leading-relaxed">
+                    49 Edge Street by Lumumber.<br/>
+                    CLI-SAMNORIS HOTEL<br/>
+                    PortHarcourt
+                  </p>
+                </div>
+                <div className="space-y-4">
+                  <h4 className="font-display text-xl text-gray-200 font-bold">Reservations</h4>
+                  <p className="text-gray-400 text-sm font-light">
+                    +33 (0) 1 23 45 67 89<br/>
+                    reservations@samnoris.com
+                  </p>
+                </div>
+              </div>
 
-      {/* Content */}
-      <div className="relative z-10 max-w-5xl mx-auto flex flex-col md:flex-row gap-10">
-        {/* LEFT: Contact Info */}
-        <motion.div
-          initial={{ opacity: 0, x: -40 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6 }}
-          className="flex-1 bg-white rounded-2xl shadow-md 
-                     px-6 py-6 md:px-8 md:py-6"
-        >
-          <div className="space-y-6">
-            <div className="flex items-start gap-4">
-              <span className="mt-1 text-[#C6A56A]">✉️</span>
-              <div>
-                <h3 className="font-medium text-[#5B4F45]">Email</h3>
-                <a
-                  href="mailto:info@luxhotel.com"
-                  className="text-[#C6A56A] hover:underline"
-                >
-                  info@luxhotel.com
-                </a>
+              <div className="pt-10 flex space-x-6 text-black opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-700">
+                  {socialLinks.map((s, i) => (
+                    <a
+                      key={i}
+                      href={s.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-2xl hover:text-primary transition-colors"
+                    >
+                      {s.icon}
+                    </a>
+                  ))}
+            </div>
+
+            </div>
+
+            {/* Right Column: The Form Card */}
+            <div className="relative">
+              {/* Soft decorative shadow behind the card */}
+              <div className="absolute -inset-10 bg-primary/10 blur-[100px] rounded-full -z-10"></div>
+              
+              <div className="bg-white rounded-[3rem] p-10 md:p-14 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.08)] border border-stone-100">
+                <form className="space-y-8" onSubmit={(e) => e.preventDefault()}>
+                  <div className="space-y-6">
+                    <div className="relative group">
+                      <label className="absolute -top-3 left-4 bg-white px-2 text-[10px] font-bold uppercase tracking-widest text-primary">Full Name</label>
+                      <input 
+                        type="text" 
+                        placeholder="e.g. Alexander Pierce"
+                        className="w-full bg-white border border-stone-200 rounded-2xl py-4 px-6 text-sm focus:border-primary focus:ring-4 focus:ring-primary/5 outline-none transition-all placeholder:text-stone-300"
+                      />
+                    </div>
+
+                    <div className="relative group">
+                      <label className="absolute -top-3 left-4 bg-white px-2 text-[10px] font-bold uppercase tracking-widest text-primary">Email Address</label>
+                      <input 
+                        type="email" 
+                        placeholder="alexander@luxury.com"
+                        className="w-full bg-white border border-stone-200 rounded-2xl py-4 px-6 text-sm focus:border-primary focus:ring-4 focus:ring-primary/5 outline-none transition-all placeholder:text-stone-300"
+                      />
+                    </div>
+
+                    <div className="relative group">
+                      <label className="absolute -top-3 left-4 bg-white px-2 text-[10px] font-bold uppercase tracking-widest text-primary">Subject</label>
+                      <select className="w-full bg-white border border-stone-200 rounded-4xl py-4 px-6 text-sm text-gray-400 focus:border-primary focus:ring-4 focus:ring-primary/5 outline-none transition-all appearance-none cursor-pointer">
+                        <option>Reservation Inquiry</option>
+                        <option>Spa & Wellness</option>
+                        <option>Corporate Events</option>
+                        <option>Feedback</option>
+                      </select>
+                      <span className="material-icons absolute right-6 top-1/2 -translate-y-1/2 text-stone-400 pointer-events-none"><FaExpand /></span>
+                    </div>
+
+                    <div className="relative group">
+                      <label className="absolute -top-3 left-4 bg-white px-2 text-[10px] font-bold uppercase tracking-widest text-primary">Your Message</label>
+                      <textarea 
+                        rows={4}
+                        placeholder="How can we assist you?"
+                        className="w-full bg-white border border-stone-200 rounded-2xl py-4 px-6 text-sm focus:border-primary focus:ring-4 focus:ring-primary/5 outline-none transition-all placeholder:text-stone-300 min-h-[120px]"
+                      ></textarea>
+                    </div>
+                  </div>
+
+                  <button className="group w-full bg-secondary hover:bg-black text-black hover:text-white font-bold py-5 rounded-2xl shadow-xl hover:shadow-secondary/20 transition-all flex items-center justify-center gap-4">
+                    <span className="uppercase tracking-[0.2em] text-xs">Send Message</span>
+                    <span className="material-icons text-primary group-hover:text-white transition-transform"><ArrowBigRight /></span>
+                  </button>
+                </form>
+
+                <p className="mt-8 text-center text-[10px] text-stone-400 uppercase tracking-widest">
+                  Our team typically responds within 2 business hours.
+                </p>
               </div>
             </div>
 
-            <div className="flex items-start gap-4">
-              <span className="mt-1 text-[#C6A56A]">📞</span>
-              <div>
-                <h3 className="font-medium text-[#5B4F45]">Phone</h3>
-                <a
-                  href="tel:+1234567890"
-                  className="text-[#C6A56A] hover:underline"
-                >
-                  +1 (234) 567-890
-                </a>
-              </div>
-            </div>
           </div>
-        </motion.div>
-
-        {/* RIGHT: Form */}
-        <motion.div
-          initial={{ opacity: 0, x: 40 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6 }}
-          className="flex-1 bg-white rounded-2xl shadow-md 
-                     px-6 py-8 md:px-8 md:py-10"
-        >
-          <h2 className="text-2xl md:text-3xl font-semibold text-center text-[#3C2F22] mb-6">
-            Send a Message
-          </h2>
-
-          <form onSubmit={handleSubmit} className="space-y-5">
-            {/* Name */}
-            <div className="relative">
-              <input
-                name="name"
-                type="text"
-                value={form.name}
-                onChange={handleChange}
-                required
-                className="w-full px-4 py-3 border border-[#E0D8CC] rounded-xl 
-                           bg-transparent outline-none peer
-                           focus:ring-2 focus:ring-[#C6A56A]"
-              />
-              <label className="absolute left-4 top-3 text-[#7A6E63] text-sm
-                transition-all peer-focus:-top-3 peer-focus:text-xs 
-                peer-focus:text-[#C6A56A] peer-valid:-top-3 peer-valid:text-xs">
-                Full Name
-              </label>
-            </div>
-
-            {/* Email */}
-            <div className="relative">
-              <input
-                name="email"
-                type="email"
-                value={form.email}
-                onChange={handleChange}
-                required
-                className="w-full px-4 py-3 border border-[#E0D8CC] rounded-xl 
-                           bg-transparent outline-none peer
-                           focus:ring-2 focus:ring-[#C6A56A]"
-              />
-              <label className="absolute left-4 top-3 text-[#7A6E63] text-sm
-                transition-all peer-focus:-top-3 peer-focus:text-xs 
-                peer-focus:text-[#C6A56A] peer-valid:-top-3 peer-valid:text-xs">
-                Email Address
-              </label>
-            </div>
-
-            {/* Message */}
-            <div className="relative">
-              <textarea
-                name="message"
-                rows={3}
-                value={form.message}
-                onChange={handleChange}
-                required
-                className="w-full px-4 py-3 border border-[#E0D8CC] rounded-xl 
-                           bg-transparent outline-none peer
-                           focus:ring-2 focus:ring-[#C6A56A]"
-              />
-              <label className="absolute left-4 top-3 text-[#7A6E63] text-sm
-                transition-all peer-focus:-top-3 peer-focus:text-xs 
-                peer-focus:text-[#C6A56A] peer-valid:-top-3 peer-valid:text-xs">
-                Your Message
-              </label>
-            </div>
-
-            {/* Submit */}
-            <motion.button
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.97 }}
-              type="submit"
-              className="w-full py-3 rounded-xl bg-[#C6A56A] 
-                         text-white font-medium shadow-md
-                         hover:bg-[#AD8A56] transition"
-            >
-              Send Message
-            </motion.button>
-          </form>
-        </motion.div>
+        </div>
       </div>
-    </section>
+    </div>
   );
-}
+};

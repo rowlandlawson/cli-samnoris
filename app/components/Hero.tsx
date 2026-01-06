@@ -25,6 +25,7 @@ export const Hero = () => {
         
         {/* TEXT */}
         <div className="text-white py-8 md:py-2">
+          <p className="text-lg font-bold ml-2"><span className="bg-white">.</span>CLI SamNoris</p>
           <h1 className="text-3xl md:text-5xl font-extrabold leading-tight">
             <i>Experience Luxury & Comfort <br /> Like Never Before</i>
           </h1>

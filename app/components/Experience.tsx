@@ -1,7 +1,7 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { ChevronRight } from 'lucide-react';
+import { ChevronRight, PlayIcon } from 'lucide-react';
 
 const treatments = [
   {
@@ -42,7 +42,7 @@ export const SpaSection: React.FC = () => {
             <h3 className="text-primary text-sm font-bold tracking-[0.4em] uppercase">Sanctuary</h3>
             <h2 className="font-display text-4xl md:text-6xl font-bold text-white leading-tight">
               A Journey into <br/>
-              <span className="italic font-light text-primary">Serenity</span>
+              <span className="italic font-light grayscale">Serenity</span>
             </h2>
             <p className="text-gray-300 font-light leading-relaxed max-w-xl">
               Escape the chaos of the world and find your balance at LuxeHaven Spa. Our master therapists use ancient wisdom and modern science to rejuvenate your mind, body, and spirit in an atmosphere of absolute silence and luxury.
@@ -71,7 +71,7 @@ export const SpaSection: React.FC = () => {
             />
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
                 <button className="w-24 h-24 rounded-full bg-white/10 backdrop-blur-xl flex items-center justify-center border border-white/20 hover:scale-110 transition-transform">
-                    <span className="material-icons text-white text-4xl">play_arrow</span>
+                    <span className="material-icons text-white text-4xl"><PlayIcon /></span>
                 </button>
             </div>
           </div>
