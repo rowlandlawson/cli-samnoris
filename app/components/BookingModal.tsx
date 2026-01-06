@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
-import { Star } from 'lucide-react';
+import { CreditCard, Star } from 'lucide-react';
+import { GiPayMoney } from 'react-icons/gi';
 
 interface Room {
   name: string;
@@ -158,7 +159,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({ room, onClose }) => 
                 >
                   {paymentMethod === 'card' && <div className="absolute top-3 right-3 w-4 h-4 rounded-full bg-primary border-4 border-white"></div>}
                   <div className="flex flex-col items-center gap-2">
-                    <span className={`material-icons text-3xl ${paymentMethod === 'card' ? 'text-primary' : 'text-gray-400'}`}>credit_card</span>
+                    <span className={`material-icons text-3xl ${paymentMethod === 'card' ? 'text-primary' : 'text-gray-400'}`}><CreditCard /></span>
                     <span className={`text-sm font-bold ${paymentMethod === 'card' ? 'text-gray-900' : 'text-gray-500'}`}>Credit Card</span>
                   </div>
                 </div>
@@ -169,7 +170,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({ room, onClose }) => 
                 >
                   {paymentMethod === 'paypal' && <div className="absolute top-3 right-3 w-4 h-4 rounded-full bg-primary border-4 border-white"></div>}
                   <div className="flex flex-col items-center gap-2">
-                    <span className={`material-icons text-3xl ${paymentMethod === 'paypal' ? 'text-blue-600' : 'text-gray-400'}`}>payments</span>
+                    <span className={`material-icons text-3xl ${paymentMethod === 'paypal' ? 'text-blue-600' : 'text-gray-400'}`}><GiPayMoney /></span>
                     <span className={`text-sm font-bold ${paymentMethod === 'paypal' ? 'text-gray-900' : 'text-gray-500'}`}>PayPal</span>
                   </div>
                 </div>
