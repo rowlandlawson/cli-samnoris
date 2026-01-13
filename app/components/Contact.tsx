@@ -1,138 +1,90 @@
 "use client";
 
-import { ArrowBigRight } from 'lucide-react';
+import { MapPin, Phone } from 'lucide-react';
 import React from 'react';
-import { FaExpand } from 'react-icons/fa';
-import { FaFacebookF, FaInstagram } from "react-icons/fa";
-import { HiOutlineMail } from "react-icons/hi";
-import { FiGlobe } from "react-icons/fi";
+import { FaFacebookF, FaInstagram, FaWhatsapp } from "react-icons/fa";
 
 const socialLinks = [
-  { icon: <FaFacebookF />, url: "https://www.facebook.com/yourpage" },
-  { icon: <FaInstagram />, url: "https://www.instagram.com/yourpage" },
-  { icon: <FiGlobe />, url: "https://www.yourwebsite.com" },
-  { icon: <HiOutlineMail />, url: "mailto:youremail@example.com" },
+  { icon: <FaFacebookF />, url: "https://www.facebook.com/clisamnoris", label: "Facebook" },
+  { icon: <FaInstagram />, url: "https://www.instagram.com/clisamnoris_hotel", label: "Instagram" },
+  { icon: <FaWhatsapp />, url: "https://wa.me/2347079408985", label: "WhatsApp" },
 ];
 
 export const Contact: React.FC = () => {
   return (
-    <div className="min-h-screen bg-stone-50 pt-32 pb-24 px-6 text-secondary">
+    <div id="contact" className="bg-[#F5F3EE] py-24 px-6 relative">
       {/* Background decoration */}
-      <div className="absolute top-0 right-0 w-1/3 h-full bg-primary/5 z-0"></div>
-      <div className="absolute bottom-0 left-0 w-1/4 h-1/2 bg-secondary/2 z-0"></div>
+      <div className="absolute top-0 right-0 w-1/3 h-full bg-[#C89F65]/5 z-0"></div>
+      <div className="absolute bottom-0 left-0 w-1/4 h-1/2 bg-[#1A2947]/5 z-0"></div>
 
       <div className="container mx-auto relative z-10">
-        <div className="max-w-6xl mx-auto">
-          
-          <div className="grid lg:grid-cols-2 gap-20 items-center">
-            
-            {/* Left Column: Minimal Copy */}
-            <div className="space-y-12">
-              <div className="space-y-6">
-                <h3 className="text-primary text-xs font-bold uppercase tracking-[0.5em]">Contact Us</h3>
-                <h1 className="font-display text-5xl md:text-7xl text-gray-200 font-bold leading-tight">
-                  We’d love to <br/>
-                  <span className="italic font-light text-primary">hear from you</span>
-                </h1>
-                <p className="text-gray-500 font-light text-lg leading-relaxed max-w-md">
-                  Whether you have a question about our villas, spa rituals, or need assistance with your booking, our dedicated team is here to ensure your LuxeHaven experience is flawless.
-                </p>
-              </div>
+        <div className="max-w-4xl mx-auto">
 
-              <div className="grid sm:grid-cols-2 gap-10">
-                <div className="space-y-4">
-                  <h4 className="font-display text-gray-200 text-xl font-bold">The Estate</h4>
-                  <p className="text-gray-400 text-sm font-light leading-relaxed">
-                    49 Edge Street by Lumumber.<br/>
-                    CLI-SAMNORIS HOTEL<br/>
-                    PortHarcourt
-                  </p>
-                </div>
-                <div className="space-y-4">
-                  <h4 className="font-display text-xl text-gray-200 font-bold">Reservations</h4>
-                  <p className="text-gray-400 text-sm font-light">
-                    +33 (0) 1 23 45 67 89<br/>
-                    reservations@samnoris.com
-                  </p>
-                </div>
-              </div>
-
-              <div className="pt-10 flex space-x-6 text-black opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-700">
-                  {socialLinks.map((s, i) => (
-                    <a
-                      key={i}
-                      href={s.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-2xl hover:text-primary transition-colors"
-                    >
-                      {s.icon}
-                    </a>
-                  ))}
-            </div>
-
-            </div>
-
-            {/* Right Column: The Form Card */}
-            <div className="relative">
-              {/* Soft decorative shadow behind the card */}
-              <div className="absolute -inset-10 bg-primary/10 blur-[100px] rounded-full -z-10"></div>
-              
-              <div className="bg-white rounded-[3rem] p-10 md:p-14 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.08)] border border-stone-100">
-                <form className="space-y-8" onSubmit={(e) => e.preventDefault()}>
-                  <div className="space-y-6">
-                    <div className="relative group">
-                      <label className="absolute -top-3 left-4 bg-white px-2 text-[10px] font-bold uppercase tracking-widest text-primary">Full Name</label>
-                      <input 
-                        type="text" 
-                        placeholder="e.g. Alexander Pierce"
-                        className="w-full bg-white border border-stone-200 rounded-2xl py-4 px-6 text-sm focus:border-primary focus:ring-4 focus:ring-primary/5 outline-none transition-all placeholder:text-stone-300"
-                      />
-                    </div>
-
-                    <div className="relative group">
-                      <label className="absolute -top-3 left-4 bg-white px-2 text-[10px] font-bold uppercase tracking-widest text-primary">Email Address</label>
-                      <input 
-                        type="email" 
-                        placeholder="alexander@luxury.com"
-                        className="w-full bg-white border border-stone-200 rounded-2xl py-4 px-6 text-sm focus:border-primary focus:ring-4 focus:ring-primary/5 outline-none transition-all placeholder:text-stone-300"
-                      />
-                    </div>
-
-                    <div className="relative group">
-                      <label className="absolute -top-3 left-4 bg-white px-2 text-[10px] font-bold uppercase tracking-widest text-primary">Subject</label>
-                      <select className="w-full bg-white border border-stone-200 rounded-4xl py-4 px-6 text-sm text-gray-400 focus:border-primary focus:ring-4 focus:ring-primary/5 outline-none transition-all appearance-none cursor-pointer">
-                        <option>Reservation Inquiry</option>
-                        <option>Spa & Wellness</option>
-                        <option>Corporate Events</option>
-                        <option>Feedback</option>
-                      </select>
-                      <span className="material-icons absolute right-6 top-1/2 -translate-y-1/2 text-stone-400 pointer-events-none"><FaExpand /></span>
-                    </div>
-
-                    <div className="relative group">
-                      <label className="absolute -top-3 left-4 bg-white px-2 text-[10px] font-bold uppercase tracking-widest text-primary">Your Message</label>
-                      <textarea 
-                        rows={4}
-                        placeholder="How can we assist you?"
-                        className="w-full bg-white border border-stone-200 rounded-2xl py-4 px-6 text-sm focus:border-primary focus:ring-4 focus:ring-primary/5 outline-none transition-all placeholder:text-stone-300 min-h-[120px]"
-                      ></textarea>
-                    </div>
-                  </div>
-
-                  <button className="group w-full bg-secondary hover:bg-black text-black hover:text-white font-bold py-5 rounded-2xl shadow-xl hover:shadow-secondary/20 transition-all flex items-center justify-center gap-4">
-                    <span className="uppercase tracking-[0.2em] text-xs">Send Message</span>
-                    <span className="material-icons text-primary group-hover:text-white transition-transform"><ArrowBigRight /></span>
-                  </button>
-                </form>
-
-                <p className="mt-8 text-center text-[10px] text-stone-400 uppercase tracking-widest">
-                  Our team typically responds within 2 business hours.
-                </p>
-              </div>
-            </div>
-
+          {/* Header */}
+          <div className="text-center mb-16 space-y-4">
+            <p className="text-[#C89F65] text-sm font-bold uppercase tracking-[0.3em]">
+              Get In Touch
+            </p>
+            <h2 className="text-4xl md:text-5xl font-bold text-[#1A2947]">
+              Contact <span className="italic font-light">Us</span>
+            </h2>
+            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+              Whether you have a question about our suites, amenities, or need assistance with your booking, we're here to help.
+            </p>
           </div>
+
+          {/* Contact Cards */}
+          <div className="grid md:grid-cols-2 gap-8 mb-12">
+            {/* Location Card */}
+            <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 hover:shadow-xl transition-shadow">
+              <div className="w-16 h-16 bg-[#C89F65]/10 rounded-2xl flex items-center justify-center mb-4">
+                <MapPin className="w-8 h-8 text-[#C89F65]" />
+              </div>
+              <h3 className="font-bold text-[#1A2947] text-xl mb-3">Our Location</h3>
+              <p className="text-gray-600 leading-relaxed">
+                49 Egede Street Mile 2 Diobu<br />
+                Port Harcourt, Rivers State<br />
+                Nigeria
+              </p>
+            </div>
+
+            {/* Phone Card */}
+            <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 hover:shadow-xl transition-shadow">
+              <div className="w-16 h-16 bg-[#C89F65]/10 rounded-2xl flex items-center justify-center mb-4">
+                <Phone className="w-8 h-8 text-[#C89F65]" />
+              </div>
+              <h3 className="font-bold text-[#1A2947] text-xl mb-3">Call Us</h3>
+              <p className="text-gray-600 leading-relaxed">
+                <a href="tel:+2348160073683" className="hover:text-[#C89F65] transition-colors">
+                  +234 816 007 3683
+                </a>
+                <br />
+                <a href="https://wa.me/2347079408985" className="hover:text-[#C89F65] transition-colors">
+                  WhatsApp: +234 707 940 8985
+                </a>
+              </p>
+            </div>
+          </div>
+
+          {/* Social Links */}
+          <div className="text-center">
+            <p className="text-sm font-semibold text-[#1A2947] mb-6">Follow Us</p>
+            <div className="flex justify-center space-x-4">
+              {socialLinks.map((social, i) => (
+                <a
+                  key={i}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-14 h-14 bg-[#1A2947] hover:bg-[#C89F65] text-white rounded-xl flex items-center justify-center transition-all transform hover:scale-110 shadow-lg"
+                  aria-label={social.label}
+                >
+                  <span className="text-xl">{social.icon}</span>
+                </a>
+              ))}
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
