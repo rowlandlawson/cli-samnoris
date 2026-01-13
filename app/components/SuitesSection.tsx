@@ -101,12 +101,6 @@ export const SuitesSection = ({ onBookingOpen }: SuitesSectionProps) => {
                                     className="object-cover group-hover:scale-110 transition-transform duration-700"
                                 />
 
-                                {/* Availability Badge */}
-                                {suite.available <= 3 && (
-                                    <div className="absolute top-4 right-4 bg-[#FB8B60] text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg animate-pulse">
-                                        Only {suite.available} left!
-                                    </div>
-                                )}
                             </div>
 
                             {/* Content */}
