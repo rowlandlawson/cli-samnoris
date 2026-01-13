@@ -144,7 +144,7 @@ export const Navbar = () => {
 
               {/* Mobile Book Now */}
               <button
-                onClick={handleBookNow}
+                onClick={() => scrollToSection("suites")}
                 className="bg-[#FB8B60] text-white text-center px-4 py-2.5 rounded-full hover:bg-[#FF6B3D] transition font-semibold shadow-lg mt-2"
               >
                 Book Now
