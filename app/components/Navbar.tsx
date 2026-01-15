@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 
@@ -44,7 +43,7 @@ export const Navbar = () => {
         {/* LEFT: LOGO */}
         <div className="flex items-center">
           <Image
-            src="/images/logo1.png"
+            src="/img/logo.jpeg"
             alt="CLI Sam Noris Hotel Logo"
             width={60}
             height={60}
