@@ -1,7 +1,6 @@
 "use client";
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import { ChevronDown } from "lucide-react";
 
 interface HeroProps {
   onBookingOpen?: () => void;
@@ -11,10 +10,9 @@ export const Hero = ({ onBookingOpen }: HeroProps) => {
   const [currentImage, setCurrentImage] = useState(0);
 
   const heroImages = [
-    "/images/hero1.png",
-    "/images/hero.png",
-    "/images/room1.png",
-    "/images/bar.png",
+    "/img/heroImage.jpeg",
+    "/img/room4.jpeg",
+    "/img/palour.jpeg",
   ];
 
   // Auto-rotate images every 5 seconds
@@ -156,7 +154,7 @@ export const Hero = ({ onBookingOpen }: HeroProps) => {
             {/* Main Featured Image */}
             <div className="absolute top-0 right-0 w-96 h-80 rounded-3xl overflow-hidden shadow-2xl border-4 border-white/10 transform rotate-3 hover:rotate-0 transition-all duration-700 group">
               <Image
-                src="/images/room2.png"
+                src="/img/poolside.jpeg"
                 alt="Luxury suite"
                 width={400}
                 height={500}
@@ -168,7 +166,7 @@ export const Hero = ({ onBookingOpen }: HeroProps) => {
             {/* Secondary Image */}
             <div className="absolute bottom-0 left-0 w-80 h-72 rounded-3xl overflow-hidden shadow-2xl border-8 border-white/5 transform -rotate-6 hover:rotate-0 transition-all duration-700 z-10 group">
               <Image
-                src="/images/bar1.png"
+                src="/img/palour.jpeg"
                 alt="Hotel amenities"
                 width={350}
                 height={400}

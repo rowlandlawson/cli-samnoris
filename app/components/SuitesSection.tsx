@@ -22,33 +22,33 @@ export const SuitesSection = ({ onBookingOpen }: SuitesSectionProps) => {
     const suites: Suite[] = [
         {
             id: 1,
-            name: "Executive Suite",
-            price: 45000,
-            image: "/images/room1.png",
-            amenities: ["WiFi", "AC", "Mini Bar", "Smart TV", "Shower", "Breakfast"],
+            name: "Suite",
+            price: 50000,
+            image: "/img/room4.jpeg",
+            amenities: ["WiFi", "AC", "Mini Bar", "Smart TV", "Shower"],
             available: 3,
         },
         {
             id: 2,
-            name: "Deluxe Suite",
-            price: 35000,
-            image: "/images/room2.png",
+            name: "Standard",
+            price: 30000,
+            image: "/img/room2.jpeg",
             amenities: ["WiFi", "AC", "Mini Bar", "TV", "Shower"],
             available: 5,
         },
-        {
-            id: 3,
-            name: "Premium Suite",
-            price: 55000,
-            image: "/images/room3.png",
-            amenities: ["WiFi", "AC", "Mini Bar", "Smart TV", "Bathtub", "Breakfast", "Pool Access"],
-            available: 2,
-        },
+        // {
+        //     id: 3,
+        //     name: "Premium Suite",
+        //     price: 55000,
+        //     image: "/images/room3.png",
+        //     amenities: ["WiFi", "AC", "Mini Bar", "Smart TV", "Bathtub", "Breakfast", "Pool Access"],
+        //     available: 2,
+        // },
         {
             id: 4,
-            name: "Standard Suite",
+            name: "Basic",
             price: 25000,
-            image: "/images/room4.png",
+            image: "/img/room1.jpeg",
             amenities: ["WiFi", "AC", "TV", "Shower"],
             available: 7,
         },
@@ -85,7 +85,7 @@ export const SuitesSection = ({ onBookingOpen }: SuitesSectionProps) => {
                 </div>
 
                 {/* Suites Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {suites.map((suite, index) => (
                         <div
                             key={suite.id}
