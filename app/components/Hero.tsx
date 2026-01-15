@@ -30,6 +30,13 @@ export const Hero = ({ onBookingOpen }: HeroProps) => {
     }
   };
 
+   const scrollToGallery = () => {
+    const suitesSection = document.getElementById("gallery");
+    if (suitesSection) {
+      suitesSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section
       id="hero"
@@ -84,7 +91,7 @@ export const Hero = ({ onBookingOpen }: HeroProps) => {
             </p>
 
             {/* Rating Badge */}
-            <div className="flex items-center gap-4 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-6 py-4 w-fit">
+            {/* <div className="flex items-center gap-4 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-6 py-4 w-fit">
               <div className="flex gap-1">
                 {[...Array(5)].map((_, i) => (
                   <svg
@@ -100,28 +107,28 @@ export const Hero = ({ onBookingOpen }: HeroProps) => {
                 <p className="font-bold text-lg">4.9/5</p>
                 <p className="text-xs text-white/70">Rated by Our Guests</p>
               </div>
-            </div>
+            </div> */}
 
             {/* CTA Buttons */}
             <div className="flex flex-wrap gap-4 pt-4">
               <button
                 data-booking-trigger
-                onClick={onBookingOpen}
+                onClick={scrollToSuites}
                 className="px-8 py-4 rounded-full bg-[#FB8B60] hover:bg-[#FF6B3D] transition-all font-bold text-lg shadow-xl hover:shadow-2xl hover:scale-105 transform"
               >
                 Book Your Stay
               </button>
 
               <button
-                onClick={scrollToSuites}
+                onClick={scrollToGallery}
                 className="px-8 py-4 rounded-full bg-white/10 backdrop-blur-md border-2 border-white/30 hover:bg-white/20 transition-all font-semibold text-lg"
               >
-                View Suites
+                View Our Luxury
               </button>
             </div>
 
             {/* Quick Info */}
-            <div className="flex flex-wrap gap-6 pt-6 text-sm">
+            {/* <div className="flex flex-wrap gap-6 pt-6 text-sm">
               <div className="flex items-center gap-2">
                 <div className="w-10 h-10 rounded-full bg-[#C89F65]/20 flex items-center justify-center">
                   <svg className="w-5 h-5 text-[#C89F65]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -146,7 +153,7 @@ export const Hero = ({ onBookingOpen }: HeroProps) => {
                   <p className="text-white/60">Prime Location</p>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
 
           {/* RIGHT SIDE - Image Composition (Desktop Only) */}
@@ -172,9 +179,6 @@ export const Hero = ({ onBookingOpen }: HeroProps) => {
                 height={400}
                 className="object-cover h-full w-full group-hover:scale-110 transition-transform duration-700"
               />
-              <div className="absolute bottom-6 left-6 right-6">
-                <p className="text-white font-bold text-xl drop-shadow-lg">Pool Bar & Lounge</p>
-              </div>
             </div>
 
             {/* Decorative Glow */}
