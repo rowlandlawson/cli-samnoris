@@ -110,22 +110,23 @@ export const Hero = ({ onBookingOpen }: HeroProps) => {
             </div> */}
 
             {/* CTA Buttons */}
-            <div className="flex flex-wrap gap-4 pt-4">
-              <button
-                data-booking-trigger
-                onClick={scrollToSuites}
-                className="px-8 py-4 rounded-full bg-[#FB8B60] hover:bg-[#FF6B3D] transition-all font-bold text-lg shadow-xl hover:shadow-2xl hover:scale-105 transform"
-              >
-                Book Your Stay
-              </button>
+           {/* CTA Buttons - Centered on mobile, left on desktop */}
+<div className="flex flex-wrap gap-4 pt-4 justify-center lg:justify-start">
+  <button
+    data-booking-trigger
+    onClick={scrollToSuites}
+    className="px-8 py-4 rounded-full bg-[#FB8F65] hover:bg-[#FF6B3D] transition-all font-bold text-lg shadow-xl hover:shadow-2xl hover:scale-105 transform w-full sm:w-auto"
+  >
+    Book Your Stay
+  </button>
 
-              <button
-                onClick={scrollToGallery}
-                className="px-8 py-4 rounded-full bg-white/10 backdrop-blur-md border-2 border-white/30 hover:bg-white/20 transition-all font-semibold text-lg"
-              >
-                View Our Luxury
-              </button>
-            </div>
+  <button
+    onClick={scrollToGallery}
+    className="px-8 py-4 rounded-full bg-white/10 backdrop-blur-md border-2 border-white/30 hover:bg-white/20 transition-all font-semibold text-lg w-full sm:w-auto"
+  >
+    View Our Luxury
+  </button>
+</div>
 
             {/* Quick Info */}
             {/* <div className="flex flex-wrap gap-6 pt-6 text-sm">
